@@ -13,7 +13,7 @@ GET, POST - Получить оценку достоверности новос�
 1 балл - недостоверная новость. Больше баллов получают новости, которые соответствуют первоисточнику с точки зрения \
 семантики и тональности
 
-## еvaluate/detail
+## detailEvaluate
 
 GET, POST - Получить все значения метрик, использованных при определении оценки достоверности новости
 
@@ -26,7 +26,7 @@ DELETE - Удалить элемент из списка доверенных и
 ## news
 GET - Получить список последних новостей
 
-## news/similar
+## similarNews
 GET, POST - Получить список похожих новостей
 """
 
@@ -48,43 +48,53 @@ app = FastAPI(
 tags_metadata = [
     {
         "name": "evaluate",
-        "description": "Operations with users. The **login** logic is also here.",
+        "description": "GET, POST - Получить оценку достоверности новости по шкале от 1 до 100 баллов. \
+100 баллов соответствует полному совпадению с публикацией в источнике из белого списка (whitelist) \
+1 балл - недостоверная новость. Больше баллов получают новости, которые соответствуют первоисточнику с точки зрения \
+семантики и тональности",
     },
     {
-        "name": "еvaluate/detail",
-        "description": "Manage items. So _fancy_ they have their own docs.",
+        "name": "detailEvaluate",
+        "description": "GET, POST - Получить все значения метрик, использованных при определении оценки достоверности новости",
     },
     {
         "name": "whitelist",
-        "description": "Manage items. So _fancy_ they have their own docs.",
+        "description": "GET - Получить список доверенных источников (white list) \
+ADD - Добавить элемент в список доверенных источников \
+DELETE - Удалить элемент из списка доверенных источников",
     },
     {
         "name": "news",
-        "description": "Manage items. So _fancy_ they have their own docs.",
+        "description": "GET - Получить список последних новостей",
     },
     {
-        "name": "news/similar",
-        "description": "Manage items. So _fancy_ they have their own docs.",
+        "name": "similarNews",
+        "description": "GET, POST - Получить список похожих новостей",
     },
 ]
 
 
-@app.get("еvaluate", tags=["news"])
+@app.get("еvaluate", tags=["evaluate"])
 async def read_item(small_text: Union[str, None] = None):
     return {"text": small_text}
 
 
-@app.get("еvaluate/detail", tags=["news"])
+@app.get("detailEvaluate", tags=["detailEvaluate"])
 async def read_item(small_text: Union[str, None] = None):
     return {"text": small_text}
 
 
-@app.get("whitelist", tags=["news"])
+@app.get("whitelist", tags=["whitelist"])
 async def read_item():
     return {"whitelist": ['mos.ru']}
 
 
 @app.get("/news/{small_text}", tags=["news"])
+def read_item(small_text: Union[str, None] = None):
+    return {"text": small_text}
+
+
+@app.get("/similarNews/{small_text}", tags=["similarNews"])
 def read_item(small_text: Union[str, None] = None):
     return {"text": small_text}
 
