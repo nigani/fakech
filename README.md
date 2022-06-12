@@ -19,12 +19,24 @@ This project has some key dependencies:
 | Dostoevsky           | https://github.com/bureaucratic-labs/dostoevsky | Sentiment analysis library for russian language                                                 |
 ---
 
-## Run
+## Запуск на локальной машинне
 
+Исполните следующий код:
 ```
 cd ./fakecheck
 bash ./create_virtualenv.sh
 uvicorn app.api:app --reload
 ```
-Open your browser to http://localhost:8000/docs to view the OpenAPI UI.
+Jnrhjqnt ,hfepth http://localhost:8000/docs to view the OpenAPI UI.
 For an alternate view of the docs navigate to http://localhost:8000/redoc
+
+
+## Структура проекта
+```
+.
+├── app
+│   ├── __init__.py
+│   └── main.py
+├── Dockerfile
+└── requirements.txt
+```
