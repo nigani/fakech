@@ -3,13 +3,11 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
 # Установим зависимости пакетов проекта
-COPY ./requirements.txt requirements.txt
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 # Загружаем обученные модели nlp
 # RUN spacy download ru_core_news_lg
 
 # Переносим файлы проекта
 COPY ./app app
-
-CMD ["uvicorn", "app.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80"]
