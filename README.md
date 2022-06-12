@@ -21,22 +21,31 @@ This project has some key dependencies:
 
 ## Запуск на локальной машинне
 
-Исполните следующий код:
+Для запуска на локальной машине исполните следующий код:
 ```
 cd ./fakecheck
 bash ./create_virtualenv.sh
 uvicorn app.api:app --reload
 ```
-Jnrhjqnt ,hfepth http://localhost:8000/docs to view the OpenAPI UI.
-For an alternate view of the docs navigate to http://localhost:8000/redoc
+Интерактивная документация по API в соответствии со стандартом OpenAPI UI здесь - http://localhost:8000/docs
+Альтернативное представление документации расположено по адресу - http://localhost:8000/redoc
 
+## Формирование образа docker
+```
+docker build -t myimage ./
+docker run -d --name mycontainer -p 80:80 myimage
+```
+В результате получаем оптимизированный веб-сервис FastAPI в контейнере Docker. 
+Он автоматически подстраивается под мощности текущего сервера и количество ядер ЦП.
+Подробнее - https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker
 
 ## Структура проекта
 ```
 .
 ├── app
 │   ├── __init__.py
-│   └── main.py
+│   └── app.py
+├── main.py
 ├── Dockerfile
 └── requirements.txt
 ```
