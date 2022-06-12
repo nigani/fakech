@@ -1,7 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, RedirectResponse
-
+from pydantic import BaseModel
 
 description = """
 FakeCheck API - сервис проверки новостей
@@ -20,7 +20,7 @@ GET, POST - Получить все значения метрик, исполь�
 ## whitelist
 
 GET - Получить список доверенных источников (white list)
-ADD - Добавить элемент в список доверенных источников
+PUT - Добавить элемент в список доверенных источников
 DELETE - Удалить элемент из списка доверенных источников
 
 ## news
@@ -64,7 +64,7 @@ ADD - Добавить элемент в список доверенных ис�
 DELETE - Удалить элемент из списка доверенных источников",
     },
     {
-        "name": "news",
+        "name": "lastNews",
         "description": "GET - Получить список последних новостей",
     },
     {
@@ -74,29 +74,50 @@ DELETE - Удалить элемент из списка доверенных и
 ]
 
 
-@app.get("еvaluate", tags=["evaluate"])
-async def read_item(small_text: Union[str, None] = None):
-    return {"text": small_text}
+class News(BaseModel):
+    date: Union[str, None] = None
+    title: Union[str, None] = None
+    text: str
 
 
-@app.get("detailEvaluate", tags=["detailEvaluate"])
-async def read_item(small_text: Union[str, None] = None):
-    return {"text": small_text}
+@app.get("/evaluate", tags=["evaluate"])
+async def evaluate(sentence: Union[str, None] = None):
+    return {"text": sentence}
 
 
-@app.get("whitelist", tags=["whitelist"])
-async def read_item():
+@app.post("/evaluate", tags=["evaluate"])
+async def evaluate(news: News):
+    return {"text": news}
+
+
+@app.get("/detailEvaluate", tags=["detailEvaluate"])
+async def detail_evavuate(sentence: Union[str, None] = None):
+    return {"text": sentence}
+
+
+@app.post("/detailEvaluate", tags=["detailEvaluate"])
+async def detail_evavuate(news: News):
+    return {"text": news}
+
+
+@app.get("/whitelist", tags=["whitelist"])
+async def white_list():
     return {"whitelist": ['mos.ru']}
 
 
-@app.get("/news/{small_text}", tags=["news"])
-def read_item(small_text: Union[str, None] = None):
-    return {"text": small_text}
+@app.get("/lastNews", tags=["lastNews"])
+def last_news():
+    return {"text": "lastNews"}
 
 
-@app.get("/similarNews/{small_text}", tags=["similarNews"])
-def read_item(small_text: Union[str, None] = None):
-    return {"text": small_text}
+@app.get("/similarNews", tags=["similarNews"])
+def similar_news(sentence: Union[str, None] = None):
+    return {"text": sentence}
+
+
+@app.post("/similarNews", tags=["similarNews"])
+def similar_news(news: News):
+    return {"text": news}
 
 
 @app.get("/", response_class=RedirectResponse)
