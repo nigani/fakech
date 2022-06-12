@@ -1,13 +1,8 @@
 from typing import Union
-
+from fastapi.responses import HTMLResponse
 from fastapi import FastAPI, Form, File, UploadFile
 
 app = FastAPI()
-
-
-@app.get("/")
-def read_root():
-    return {"Project": "FakeCheck"}
 
 
 @app.get("/news/{news_id}")
@@ -29,3 +24,8 @@ async def create_file(file: bytes = File("")):
 async def create_upload_file(file: UploadFile):
     contents = await file.read()
     return {"filename": file.filename, "file_size": len(contents)}
+
+
+@app.get("/")
+def root():
+    return HTMLResponse("<b>Hello world</b>")
