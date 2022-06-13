@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d73ff469-49a6-4717-a985-47540f3308d3" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/app/news_load.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/news_load.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +28,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/requirements.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/main.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/news_load.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/tools.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2ATadK1KZk7eSWA5lkaJ0xbKRh7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -79,7 +81,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="news_load" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="tools" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -92,7 +94,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/news_load.py" />
+      <option name="SCRIPT_NAME" value="C:\Data\PYPRO\fakech\app\tools.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,12 +143,12 @@
       <item itemvalue="Docker.Docker Image" />
       <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.news_load" />
+      <item itemvalue="Python.tools" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="Python.news_load" />
+        <item itemvalue="Python.tools" />
         <item itemvalue="Docker.Docker Image" />
       </list>
     </recent_temporary>
@@ -163,7 +165,7 @@
       <workItem from="1655037213036" duration="8128000" />
       <workItem from="1655046276782" duration="11517000" />
       <workItem from="1655058184705" duration="12480000" />
-      <workItem from="1655073248181" duration="3445000" />
+      <workItem from="1655073248181" duration="15576000" />
     </task>
     <task id="LOCAL-00001" summary="Update README.md">
       <created>1655040218314</created>
@@ -270,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655072284280</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update">
+      <created>1655086244747</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1655086244747</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

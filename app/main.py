@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, RedirectResponse
 from pydantic import BaseModel
 
-from app.news_load import news_load
+from app.tools import *
 
 description = """
 FakeCheck API - сервис проверки новостей
@@ -86,14 +86,13 @@ def white_list():
 
 @app.get("/lastNews", tags=["lastNews"])
 def last_news():
-    print("!!!")
-    t = news_load()
-    print(t)
+    print("/lastNews")
     return {"lastNews": news_load()}
 
 
 @app.get("/similarNews", tags=["similarNews"])
 def similar_news(sentence: Union[str, None] = None):
+    print("/lastNews")
     return {"text": sentence}
 
 
